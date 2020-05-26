@@ -25,33 +25,27 @@ export class AppComponent {
       this.cases = {
         title: 'New Cases Per Day',
         dataSets: [{
-          data: this.dailyCases.map(dailyCase => dailyCase.NEW_CASES),
-          label: 'New Cases'
+          data: this.dailyCases.map(dailyCase => dailyCase.NEW_CASES)
         }],
-        labels: this.dailyCases.map(dailyCase =>
-          TimeUtil.toDate(dailyCase.DATE).toLocaleDateString()),
+        labels: this.dailyCases.map(this.dateOf),
         color: 'rgba(0, 100, 255, 0.6)'
       };
       this.deaths = {
         title: 'New Deaths Per Day',
         dataSets: [{
           data: this.dailyCases.map(dailyCase =>
-            dailyCase.NEW_DEATHS < 0 ? 0 : dailyCase.NEW_DEATHS),
-          label: 'New Deaths'
+            dailyCase.NEW_DEATHS < 0 ? 0 : dailyCase.NEW_DEATHS)
         }],
-        labels: this.dailyCases.map(dailyCase =>
-          TimeUtil.toDate(dailyCase.DATE).toLocaleDateString()),
+        labels: this.dailyCases.map(this.dateOf),
         color: 'rgba(255, 0, 0, 0.6)'
       };
       this.recoveries = {
         title: 'New Recoveries Per Day',
         dataSets: [{
-          data: this.dailyCases.map(dailyCase => dailyCase.NEW_RECOVERED),
-          label: 'New Recoveries'
+          data: this.dailyCases.map(dailyCase => dailyCase.NEW_RECOVERED)
         }],
-        labels: this.dailyCases.map(dailyCase =>
-          TimeUtil.toDate(dailyCase.DATE).toLocaleDateString()),
-        color: 'rgba(0,169,0,0.6)'
+        labels: this.dailyCases.map(this.dateOf),
+        color: 'rgba(0, 169, 0, 0.6)'
       };
       this.activeCases = {
         title: 'Active Cases',
@@ -59,10 +53,13 @@ export class AppComponent {
           data: this.dailyCases.map(dailyCase => dailyCase.TOTAL_ACTIVE),
           label: 'Active Cases'
         }],
-        labels: this.dailyCases.map(dailyCase =>
-          TimeUtil.toDate(dailyCase.DATE).toLocaleDateString()),
+        labels: this.dailyCases.map(this.dateOf),
         color: 'rgba(0, 100, 255, 0.6)'
       };
     });
+  }
+
+  private dateOf(dailyCase: DailyCase): string {
+    return TimeUtil.toDate(dailyCase.DATE).toLocaleDateString();
   }
 }
