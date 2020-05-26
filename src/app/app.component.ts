@@ -10,7 +10,7 @@ import { TimeUtil } from './util/time.util';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'tennessee-covid';
+  title = 'tennessee-covid-19';
 
   dailyCases: DailyCase[];
 

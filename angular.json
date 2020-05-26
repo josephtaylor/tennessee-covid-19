@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "tennessee-covid": {
+    "tennessee-covid-19": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tennessee-covid",
+            "outputPath": "dist/tennessee-covid-19",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "tennessee-covid:build"
+            "browserTarget": "tennessee-covid-19:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "tennessee-covid:build:production"
+              "browserTarget": "tennessee-covid-19:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tennessee-covid:build"
+            "browserTarget": "tennessee-covid-19:build"
           }
         },
         "test": {
@@ -117,15 +117,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "tennessee-covid:serve"
+            "devServerTarget": "tennessee-covid-19:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "tennessee-covid:serve:production"
+              "devServerTarget": "tennessee-covid-19:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "tennessee-covid"
+  "defaultProject": "tennessee-covid-19"
 }

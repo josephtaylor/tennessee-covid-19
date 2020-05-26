@@ -1,12 +1,12 @@
 {
-  "name": "tennessee-covid",
+  "name": "tennessee-covid-19",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --ssl --live-reload",
     "build": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng b --prod --aot",
-    "build:docker": "docker build . -f docker/Dockerfile -t tennessee-covid",
-    "start:docker": "docker run -it --rm --name tennessee-covid -p 81:80 tennessee-covid:latest",
+    "build:docker": "docker build . -f docker/Dockerfile -t tennessee-covid-19",
+    "start:docker": "docker run -it --rm --name tennessee-covid-19 -p 81:80 tennessee-covid-19:latest",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

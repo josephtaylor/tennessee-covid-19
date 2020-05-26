@@ -17,4 +17,4 @@ FROM nginx
 
 COPY docker/nginx /etc/nginx/
 
-COPY --from=compile-image /opt/ng/dist/tennessee-covid /usr/share/nginx/html
+COPY --from=compile-image /opt/ng/dist/tennessee-covid-19 /usr/share/nginx/html
