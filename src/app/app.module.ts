@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 import { BarChartComponent } from './chart/bar-chart.component';
-import { DailyCaseService } from "./stats/daily-case/daily-case.service";
-import { ChartsModule } from "ng2-charts";
+import { DailyCaseService } from './stats/daily-case/daily-case.service';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [

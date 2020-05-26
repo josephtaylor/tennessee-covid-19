@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ChartData } from './chart/chart-data.model';
-import { DailyCase } from "./stats/daily-case/daily-case.model";
-import { DailyCaseService } from "./stats/daily-case/daily-case.service";
+import { DailyCase } from './stats/daily-case/daily-case.model';
+import { DailyCaseService } from './stats/daily-case/daily-case.service';
 import { TimeUtil } from './util/time.util';
 
 @Component({
