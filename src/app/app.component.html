@@ -1,13 +1,27 @@
-<div class="container-fluid container" *ngIf="dailyCases">
+<div class="container-fluid container full-screen">
   <div class="row">
-    <div class="col">
-      <canvas baseChart
-              [datasets]="chartDataSets"
-              [labels]="chartLabels"
-              [options]="chartOptions"
-              [colors]="chartColors"
-              [chartType]="'bar'">
-      </canvas>
+    <div class="col text-center">
+      <h1>Tennessee COVID-19 Statistics</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-6" *ngIf="cases">
+      <tn-covid-bar-chart [chartData]="cases">
+      </tn-covid-bar-chart>
+    </div>
+    <div class="col-md-12 col-lg-6" *ngIf="activeCases">
+      <tn-covid-bar-chart [chartData]="activeCases">
+      </tn-covid-bar-chart>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-6" *ngIf="recoveries">
+      <tn-covid-bar-chart [chartData]="recoveries">
+      </tn-covid-bar-chart>
+    </div>
+    <div class="col-md-12 col-lg-6" *ngIf="deaths">
+      <tn-covid-bar-chart [chartData]="deaths">
+      </tn-covid-bar-chart>
     </div>
   </div>
 </div>

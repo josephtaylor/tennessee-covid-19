@@ -5,7 +5,7 @@ export class DailyCase {
   NEW_ACTIVE: number;
   NEW_CASES: number;
   NEW_CONFIRMED: number;
-  NEW_DEAHTHS: number;
+  NEW_DEATHS: number;
   NEW_HOSP: number;
   NEW_RECOVERED: number;
   NEW_TEST: number;

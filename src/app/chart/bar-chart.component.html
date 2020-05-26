@@ -1,0 +1,10 @@
+<div class="chart-container">
+  <canvas baseChart
+          *ngIf="chartData"
+          [datasets]="chartData.dataSets"
+          [labels]="chartData.labels"
+          [options]="options"
+          [colors]="colors"
+          [chartType]="'bar'">
+  </canvas>
+</div>
