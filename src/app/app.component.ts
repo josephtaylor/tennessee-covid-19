@@ -46,7 +46,7 @@ export class AppComponent {
 
     return merge(debouncedText$, inputFocus$, clicksWithClosedPopup$).pipe(
       map(term => (term === '' ? this.counties :
-        this.counties.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1))
+        this.counties.filter(v => v.toLowerCase().startsWith(term.toLowerCase())))
         .slice(0, 15))
     );
   }
