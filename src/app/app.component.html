@@ -5,17 +5,20 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      <label for="county-select">Select a County</label>
+    <div class="col my-2">
       <input id="county-select"
              type="text"
              class="form-control"
+             placeholder="Type a County Name"
              [(ngModel)]="selectedCounty"
              [ngbTypeahead]="searchCounties"
              (focus)="focus$.next($any($event).target.value)"
              (click)="click$.next($any($event).target.value)"
              #countySelect="ngbTypeahead"
              (selectItem)="handleSelectedCounty($event)"/>
+    </div>
+    <div class="col-md-12 col-lg-2 my-2" *ngIf="selectedCounty !== ''">
+      <button class="btn btn-primary btn-block" (click)="clearCounty()">Clear</button>
     </div>
   </div>
   <div class="row">

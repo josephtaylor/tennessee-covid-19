@@ -24,7 +24,7 @@ export class AppComponent {
 
   counties: string[];
 
-  selectedCounty = 'State of Tennessee';
+  selectedCounty = '';
 
   cases: ChartData;
   deaths: ChartData;
@@ -47,12 +47,18 @@ export class AppComponent {
     return merge(debouncedText$, inputFocus$, clicksWithClosedPopup$).pipe(
       map(term => (term === '' ? this.counties :
         this.counties.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1))
-        .slice(0, 10))
+        .slice(0, 15))
     );
   }
 
   handleSelectedCounty(selectedItem: NgbTypeaheadSelectItemEvent) {
     this.loadData(selectedItem.item);
+  }
+
+  clearCounty() {
+    this.countySelect.writeValue('');
+    this.selectedCounty = '';
+    this.loadData('');
   }
 
   private buildCountyList() {
@@ -63,9 +69,13 @@ export class AppComponent {
       }
       return a.localeCompare(b);
     });
+    this.counties.shift();
   }
 
   private loadData(county: string) {
+    if (county === '') {
+      county = 'State of Tennessee';
+    }
     this.cases = {
       title: 'New Cases Per Day',
       dataSets: [{
