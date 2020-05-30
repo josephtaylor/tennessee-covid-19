@@ -8,19 +8,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { BarChartComponent } from './chart/bar-chart.component';
 import { DailyCaseService } from './stats/daily-case/daily-case.service';
 import { ChartsModule } from 'ng2-charts';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     BarChartComponent
   ],
-  imports: [
-    BrowserModule,
-    ChartsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        ChartsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        NgbModule,
+        FormsModule
+    ],
   providers: [
     DailyCaseService
   ],
