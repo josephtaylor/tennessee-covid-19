@@ -34,7 +34,6 @@ export class AppComponent {
   constructor(private dailyStatService: DailyCaseService) {
     dailyStatService.getDailyCases().subscribe(dailyCaseData => {
       this.dailyCaseData = dailyCaseData;
-      console.log(this.dailyCaseData);
       this.buildCountyList();
       this.loadData(this.selectedCounty);
     });
