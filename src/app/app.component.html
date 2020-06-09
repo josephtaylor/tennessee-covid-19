@@ -41,4 +41,18 @@
       </tn-covid-bar-chart>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-6" *ngIf="tests">
+      <tn-covid-bar-chart [chartData]="tests">
+      </tn-covid-bar-chart>
+    </div>
+  </div>
+  <div class="row pt-2" *ngIf="activeCases">
+    <div class="col text-center">
+      data from
+      <a href="https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html">
+        the Tennessee Department of Health
+      </a>
+    </div>
+  </div>
 </div>

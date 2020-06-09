@@ -30,6 +30,7 @@ export class AppComponent {
   deaths: ChartData;
   recoveries: ChartData;
   activeCases: ChartData;
+  tests: ChartData;
 
   constructor(private dailyStatService: DailyCaseService) {
     dailyStatService.getDailyCases().subscribe(dailyCaseData => {
@@ -112,6 +113,16 @@ export class AppComponent {
       }],
       labels: this.dailyCaseData.get(county).map(this.dateOf),
       color: 'rgba(0, 100, 255, 0.6)'
+    };
+    this.tests = {
+      title: 'Tests Per Day',
+      dataSets: [{
+        data: this.dailyCaseData.get(county).map(dailyCase =>
+          dailyCase.NEW_TESTS < 0 ? 0 : dailyCase.NEW_TESTS),
+        label: 'New Tests'
+      }],
+      labels: this.dailyCaseData.get(county).map(this.dateOf),
+      color: 'rgba(0, 169, 0, 0.6)'
     };
   }
 
