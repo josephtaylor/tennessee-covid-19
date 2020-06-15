@@ -17,16 +17,18 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.ACCESS_TOKEN }}
     # Runs a set of commands using the runners shell
     - name: update datasets
       run: |
         ./refresh.sh
     - name: create commit
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "taylor@singlemusic.com"
+        git config --local user.name "Taylor O'Connor"
         git commit -m "update datasets" -a
     - name: push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.ACCESS_TOKEN }}
