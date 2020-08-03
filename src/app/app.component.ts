@@ -15,7 +15,7 @@ import { NgbTypeahead, NgbTypeaheadSelectItemEvent } from '@ng-bootstrap/ng-boot
 export class AppComponent {
   title = 'tennessee-covid-19';
 
-  @ViewChild('countySelect', {static: true})
+  @ViewChild('countySelect', { static: true })
   countySelect: NgbTypeahead;
   focus$ = new Subject<string>();
   click$ = new Subject<string>();
@@ -31,6 +31,7 @@ export class AppComponent {
   recoveries: ChartData;
   activeCases: ChartData;
   tests: ChartData;
+  hospitalizations: ChartData;
 
   constructor(private dailyStatService: DailyCaseService) {
     dailyStatService.getDailyCases().subscribe(dailyCaseData => {
@@ -113,6 +114,20 @@ export class AppComponent {
       }],
       labels: this.dailyCaseData.get(county).map(this.dateOf),
       color: 'rgba(0, 100, 255, 0.6)'
+    };
+    this.hospitalizations = {
+      title: 'Hospitalizations Per Day',
+      dataSets: [{
+        data: this.dailyCaseData.get(county).map(dailyCase => {
+          if (county === 'State of Tennessee') {
+            return dailyCase.NEW_HOSP;
+          }
+          return dailyCase.NEW_HOSPITALIZED;
+        }),
+        label: 'Hospitalizations'
+      }],
+      labels: this.dailyCaseData.get(county).map(this.dateOf),
+      color: 'rgba(255, 0, 0, 0.6)'
     };
     this.tests = {
       title: 'Tests Per Day',

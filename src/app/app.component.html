@@ -42,6 +42,10 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-md-12 col-lg-6" *ngIf="hospitalizations">
+      <tn-covid-bar-chart [chartData]="hospitalizations">
+      </tn-covid-bar-chart>
+    </div>
     <div class="col-md-12 col-lg-6" *ngIf="tests">
       <tn-covid-bar-chart [chartData]="tests">
       </tn-covid-bar-chart>
