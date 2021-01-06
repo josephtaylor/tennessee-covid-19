@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 base_path=https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets
 
 wget ${base_path}/Public-Dataset-Daily-Case-Info.XLSX \
